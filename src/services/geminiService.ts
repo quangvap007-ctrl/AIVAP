@@ -47,15 +47,7 @@ const extractBase64Image = (response: GenerateContentResponse): string | null =>
 };
 
 const getApiKey = () => {
-    // In this environment, process.env.API_KEY is replaced by the platform with the user's key if selected.
-    // We use a fallback to GEMINI_API_KEY (the free key) if API_KEY is not available or not yet replaced.
-    try {
-        const key = process.env.API_KEY;
-        if (key && key !== "process.env.API_KEY" && !key.startsWith("process.env.")) {
-            return key;
-        }
-    } catch (e) {}
-    return process.env.GEMINI_API_KEY || "";
+  return import.meta.env.VITE_GEMINI_API_KEY || "";
 };
 
 export const generateImages = async (
