@@ -58,9 +58,10 @@ export const generateImages = async (
   aspectRatio: string = '4:3',
   lang: 'vi' | 'en' = 'vi',
   negativePrompt?: string,
-  modelName: string = 'gemini-2.5-flash-image',
+  modelName: string = 'gemini-2.0-flash-exp-image-generation',
   imageSize: ImageSize = '1K'
 ): Promise<string[]> => {
+
   const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const results: (string | null)[] = [];
   
@@ -73,15 +74,15 @@ export const generateImages = async (
       }
   }
 
-  const isProModel = modelName === 'gemini-3-pro-image-preview';
+  const isProModel = false;
   const config: any = {
-      imageConfig: {
-          aspectRatio: finalAspectRatio
+  generationConfig: {
+    aspectRatio: finalAspectRatio
       }
   };
   
   if (isProModel) {
-      config.imageConfig.imageSize = imageSize;
+      config.generationConfig.imageSize = imageSize;
   }
 
   for (let i = 0; i < count; i++) {
