@@ -1,3 +1,5 @@
-git add .
-git commit -m "remove tailwind"
-git push
+/* empty hoặc CSS bình thường */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
