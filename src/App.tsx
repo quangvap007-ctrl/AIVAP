@@ -26,6 +26,29 @@ import { EditorBetaView } from './components/EditorBetaView';
 
 export default function App() {
   const [user, setUser] = useState<any>(null);
+  useEffect(() => {
+  const initGoogle = () => {
+    if ((window as any).google) {
+      (window as any).google.accounts.id.initialize({
+        client_id: "YOUR_GOOGLE_CLIENT_ID",
+        callback: handleLogin
+      });
+
+      (window as any).google.accounts.id.renderButton(
+        document.getElementById("googleLoginDiv"),
+        { theme: "outline", size: "large" }
+      );
+    }
+  };
+
+  setTimeout(initGoogle, 500);
+}, []);
+
+const handleLogin = (response: any) => {
+  const data = JSON.parse(atob(response.credential.split('.')[1]));
+  setUser(data);
+};
+
   const { language, t } = useLanguage();
   const { theme } = useTheme();
   const [isAppStarted, setIsAppStarted] = useState(false);
