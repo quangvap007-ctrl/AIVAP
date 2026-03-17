@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ThemeProvider } from './contexts/ThemeProvider';
-import { SessionProvider } from "next-auth/react"; // Thêm thư viện quản lý phiên đăng nhập
+
 
 const rootElement = document.getElementById('root');
 
@@ -16,13 +16,10 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    {/* Bao bọc toàn bộ App bằng SessionProvider để quản lý đăng nhập Google */}
-    <SessionProvider>
-      <ThemeProvider>
-        <LanguageProvider>
-          <App />
-        </LanguageProvider>
-      </ThemeProvider>
-    </SessionProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
