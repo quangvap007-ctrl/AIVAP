@@ -74,9 +74,7 @@ return (
     </button>
   )}
 </div>
-) : (
-  <button onClick={login}>Đăng nhập Google</button>
-)}
+
 
 <br/><br/>
 
