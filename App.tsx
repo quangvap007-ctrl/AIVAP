@@ -51,12 +51,30 @@ return (
 
 <p>AI Architecture + Urban Planning Tools</p>
 
-{/* LOGIN UI */}
-{user ? (
-  <>
-    <p>Xin chào: {user.displayName}</p>
-    <button onClick={logout}>Đăng xuất</button>
-  </>
+<div style={{
+  position: "fixed",
+  top: 20,
+  right: 20,
+  zIndex: 9999
+}}>
+  {user ? (
+    <div style={{
+      background: "#111",
+      color: "#fff",
+      padding: "8px 12px",
+      borderRadius: 8
+    }}>
+      <span style={{ marginRight: 10 }}>
+        {user.displayName}
+      </span>
+      <button onClick={logout}>Đăng xuất</button>
+    </div>
+  ) : (
+    <button onClick={login}>
+      Đăng nhập Google
+    </button>
+  )}
+</div>
 ) : (
   <button onClick={login}>Đăng nhập Google</button>
 )}
