@@ -25,6 +25,7 @@ import { LibraryView } from './components/LibraryView';
 import { EditorBetaView } from './components/EditorBetaView';
 
 export default function App() {
+  const [user, setUser] = useState<any>(null);
   const { language, t } = useLanguage();
   const { theme } = useTheme();
   const [isAppStarted, setIsAppStarted] = useState(false);
