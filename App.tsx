@@ -67,7 +67,6 @@ return (
       <span style={{ marginRight: 10 }}>
         {user.displayName}
       </span>
-      <button onClick={logout}>Đăng xuất</button>
     </div>
   ) : (
     <button onClick={login}>
