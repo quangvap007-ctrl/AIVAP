@@ -20,7 +20,7 @@ if(!prompt){
   return res.status(400).json({ error: "Thiếu prompt" })
 }
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+const genAI = new GoogleGenerativeAI(process.env.VITE_GEMINI_API_KEY);
 
 const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash"
